@@ -62,13 +62,28 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: 100%;
     }
 
   </style>
-
   <script>
+    function getTime(){
+      var secs = new Date().getSeconds();
+      var secondHand = document.querySelector('.second-hand');
+      var secsRotate = (secs/60)*360;
+      secondHand.style.transform = `rotate(${secsRotate+90}deg)`
 
+      var mins = new Date().getMinutes();
+      var minsHand = document.querySelector('.min-hand');
+      var minsRotate = (mins/60)*360;
+      minsHand.style.transform = `rotate(${minsRotate+90}deg)`
 
+      var hours = new Date().getHours();
+      var hoursHand = document.querySelector('.hour-hand');
+      var hourRotate = (hours/60)*360;
+      hoursHand.style.transform = `rotate(${hourRotate+90}deg)`
+    }
+    setInterval(getTime,1000)
   </script>
 </body>
 </html>
